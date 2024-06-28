@@ -71,7 +71,6 @@ export default function Layout({ children }) {
             ))}
           </List>
 
-
         </DrawerPaper>
       </DrawerComponent>
 
