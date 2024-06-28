@@ -6,10 +6,11 @@ import { AddCircleOutline, AddCircleOutlineOutlined, SubjectOutlined } from '@mu
 import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 // Define styled components using Emotion
-const PageContainer = styled('div')({
+const PageContainer = styled('div')(({ theme }) => ({
   background: '#f9f9f9',
   width: '100%',
-});
+  padding: theme.spacing(3),
+}));
 const RootContainer = styled('div')({
   display: 'flex',
 });
@@ -18,6 +19,9 @@ const DrawerComponent = styled(Drawer)(({ theme }) => ({
 }));
 const DrawerPaper = styled('div')(({ theme }) => ({
   width: 240,
+}));
+const Title = styled(Typography)(({ theme }) => ({
+  padding: theme.spacing(2),
 }));
 
 const menuItems = [
@@ -35,9 +39,7 @@ const menuItems = [
 
 
 export default function Layout({ children }) {
-
   const history = useHistory();
-  // const [activeIndex, setActiveIndex] = useState(0);
   const location = useLocation();
   return (
     <RootContainer>
@@ -59,12 +61,12 @@ export default function Layout({ children }) {
                 button key={item.text}
                 onClick={() => history.push(item.path)}
                 sx={{
-                  backgroundColor: location.pathname === item.path? '#f4f4f4' : 'transparent',
+                  backgroundColor: location.pathname === item.path ? '#f4f4f4' : 'transparent',
                   '&:hover': {
                     backgroundColor: '#f4f4f4',
                   },
                 }}
-                >
+              >
                 <ListItemIcon>{item.icon}</ListItemIcon>
                 <ListItemText primary={item.text} />
               </ListItem>

@@ -1,14 +1,14 @@
 import React from "react";
-import { Card, Typography } from "@mui/material";
-import { CardHeader } from "@mui/material";
-import { CardContent } from "@mui/material";
-import { IconButton } from "@mui/material";
+import { Card, CardHeader, CardContent, IconButton, Typography } from "@mui/material";
 import { DeleteOutline } from "@mui/icons-material";
 
 const NoteCard = ({ note, handleDelete }) => {
+  
+  const borderColor = note.category === 'work' ? 'pink' : 'inherit';
+
   return (
     <div>
-      <Card elevation={1}>
+      <Card elevation={1} sx={{ border: `${borderColor} 1px solid`}}>
         <CardHeader 
           action={
             <IconButton onClick={() => handleDelete(note.id)}>
