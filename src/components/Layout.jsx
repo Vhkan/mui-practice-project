@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Button, Drawer, Typography } from '@mui/material';
 import { styled } from '@mui/system';
-import { List, ListItem, ListItemIcon, ListItemText, AppBar, Toolbar } from '@mui/material';
+import { List, ListItem, ListItemIcon, ListItemText, AppBar, Toolbar, Avatar } from '@mui/material';
 import { AddCircleOutline, AddCircleOutlineOutlined, SubjectOutlined } from '@mui/icons-material';
 import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
-
 
 // Define styled components using Emotion
 const PageContainer = styled('div')(({ theme }) => ({
@@ -61,6 +60,10 @@ export default function Layout({ children }) {
             Today is {new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
             {Date().toString}
           </DateTypography>
+          <Typography>
+            Hero
+          </Typography>
+          <Avatar src='/avatar.jpg' sx={{ margin: 2 }}/>
         </Toolbar>
       </AppBarStyled>
 
