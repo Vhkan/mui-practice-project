@@ -4,19 +4,17 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 export default function Create() {
+  const history = useHistory();
   const [title, setTitle] = useState('');
   const [details, setDetails] = useState('');
   const [titleError, setTitleError] = useState(false);
   const [detailsError, setDetailsError] = useState(false);
-  const [selectedValue, setSelectedValue] = useState('');
-  const [category, setCategory] = useState('todos');
-  const history = useHistory();
+  const [category, setCategory] = useState('money');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setTitleError(false);
     setDetailsError(false);
-    setCategory('todos');
 
     if (title === '') {
       setTitleError(true);
@@ -25,7 +23,6 @@ export default function Create() {
       setDetailsError(true);
     }
     if (title && details) {
-      //adding new data to db.json
       fetch('http://localhost:8000/notes', {
         method: 'POST',
         headers: {'Content-type': 'application/json'},
@@ -69,6 +66,22 @@ export default function Create() {
             />
           </Grid>
           <Grid item xs={12}>
+            <FormControl component="fieldset">
+              <FormLabel component="legend">Note Category</FormLabel>
+              <RadioGroup 
+                row 
+                aria-label="category" 
+                name="category" 
+                value={category} 
+                onChange={(e) => setCategory(e.target.value)}>
+                <FormControlLabel value="money" control={<Radio sx={{'&, &.Mui-checked': {color: 'pink'}}}/>} label='Money' />
+                <FormControlLabel value="todos" control={<Radio sx={{'&, &.Mui-checked': {color: 'pink'}}}/>} label='Todos' />
+                <FormControlLabel value="reminders" control={<Radio sx={{'&, &.Mui-checked': {color: 'pink'}}}/>} label='Reminders' />
+                <FormControlLabel value="work" control={<Radio sx={{'&, &.Mui-checked': {color: 'pink'}}}/>} label='Work' />
+              </RadioGroup>
+            </FormControl>
+          </Grid>
+          <Grid item xs={12}>
             <Button
               type="submit"
               variant="contained"
@@ -78,17 +91,6 @@ export default function Create() {
             >
               Submit
             </Button>
-          </Grid>
-          <Grid item xs={12}>
-            <FormControl component="fieldset">
-              <FormLabel component="legend">Note Category</FormLabel>
-              <RadioGroup row aria-label="position" name="position" value={selectedValue} onChange={(e) => setSelectedValue(e.target.value)}>
-                <FormControlLabel value="money" control={<Radio sx={{'&, &.Mui-checked': {color: 'pink'}}}/>} label='Money' />
-                <FormControlLabel value="todos" control={<Radio sx={{'&, &.Mui-checked': {color: 'pink'}}}/>} label='Todos' />
-                <FormControlLabel value="reminders" control={<Radio sx={{'&, &.Mui-checked': {color: 'pink'}}}/>} label='Reminders' />
-                <FormControlLabel value="work" control={<Radio sx={{'&, &.Mui-checked': {color: 'pink'}}}/>} label='Work' />
-              </RadioGroup>
-            </FormControl>
           </Grid>
         </Grid>
       </form>
