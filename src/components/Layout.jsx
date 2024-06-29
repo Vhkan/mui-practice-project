@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Button, Drawer, Typography } from '@mui/material';
+import React from 'react';
+import { Drawer, Typography } from '@mui/material';
 import { styled } from '@mui/system';
 import { List, ListItem, ListItemIcon, ListItemText, AppBar, Toolbar, Avatar } from '@mui/material';
-import { AddCircleOutline, AddCircleOutlineOutlined, SubjectOutlined } from '@mui/icons-material';
+import { AddCircleOutlineOutlined, SubjectOutlined } from '@mui/icons-material';
 import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 // Define styled components using Emotion
@@ -61,7 +61,7 @@ export default function Layout({ children }) {
             {Date().toString}
           </DateTypography>
           <Typography>
-            Hero
+            App Uza
           </Typography>
           <Avatar src='/avatar.jpg' sx={{ margin: 2 }}/>
         </Toolbar>
