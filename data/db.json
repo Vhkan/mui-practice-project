@@ -25,22 +25,16 @@
       "id": "3"
     },
     {
-      "id": "db99",
-      "title": "Complete MUI Tutorial",
-      "details": "Watch all the ninja tutorials",
-      "category": "todos"
-    },
-    {
-      "id": "c3d0",
-      "title": "Pay the Electricity Bill",
-      "details": "Check the mailbox, and find the e-bill mail there. Open the envelope, go online, and pay the bill.",
-      "category": "todos"
-    },
-    {
       "id": "66ea",
       "title": "Send money",
       "details": "Send money to the credit card.",
       "category": "money"
+    },
+    {
+      "id": "13c2",
+      "title": "Watch tutorials",
+      "details": "Watch all the ninja tutorials.",
+      "category": "todos"
     }
   ]
 }

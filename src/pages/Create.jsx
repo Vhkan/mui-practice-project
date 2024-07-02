@@ -25,7 +25,7 @@ export default function Create() {
     if (title && details) {
       fetch('http://localhost:8000/notes', {
         method: 'POST',
-        headers: {'Content-type': 'application/json'},
+        headers: { 'Content-type': 'application/json' },
         body: JSON.stringify({ title, details, category })
       }).then(() => history.push('/'))
     }
@@ -68,16 +68,16 @@ export default function Create() {
           <Grid item xs={12}>
             <FormControl component="fieldset">
               <FormLabel component="legend">Note Category</FormLabel>
-              <RadioGroup 
-                row 
-                aria-label="category" 
-                name="category" 
-                value={category} 
+              <RadioGroup
+                row
+                aria-label="category"
+                name="category"
+                value={category}
                 onChange={(e) => setCategory(e.target.value)}>
-                <FormControlLabel value="money" control={<Radio sx={{'&, &.Mui-checked': {color: 'pink'}}}/>} label='Money' />
-                <FormControlLabel value="todos" control={<Radio sx={{'&, &.Mui-checked': {color: 'pink'}}}/>} label='Todos' />
-                <FormControlLabel value="reminders" control={<Radio sx={{'&, &.Mui-checked': {color: 'pink'}}}/>} label='Reminders' />
-                <FormControlLabel value="work" control={<Radio sx={{'&, &.Mui-checked': {color: 'pink'}}}/>} label='Work' />
+                <FormControlLabel value="money" control={<Radio sx={{ '&, &.Mui-checked': { color: 'pink' } }} />} label='Money' />
+                <FormControlLabel value="todos" control={<Radio sx={{ '&, &.Mui-checked': { color: 'pink' } }} />} label='Todos' />
+                <FormControlLabel value="reminders" control={<Radio sx={{ '&, &.Mui-checked': { color: 'pink' } }} />} label='Reminders' />
+                <FormControlLabel value="work" control={<Radio sx={{ '&, &.Mui-checked': { color: 'pink' } }} />} label='Work' />
               </RadioGroup>
             </FormControl>
           </Grid>

@@ -5,7 +5,6 @@ import { List, ListItem, ListItemIcon, ListItemText, AppBar, Toolbar, Avatar } f
 import { AddCircleOutlineOutlined, SubjectOutlined } from '@mui/icons-material';
 import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
-// Define styled components using Emotion
 const PageContainer = styled('div')(({ theme }) => ({
   background: '#f9f9f9',
   width: '100%',
@@ -25,11 +24,11 @@ const DrawerComponent = styled(Drawer)(({ theme }) => ({
 const Title = styled(Typography)(({ theme }) => ({
   padding: theme.spacing(2),
 }));
-const AppBarStyled = styled(AppBar) (({ theme }) => ({
+const AppBarStyled = styled(AppBar)(({ theme }) => ({
   width: `calc(100% - 240px)`,
   marginLeft: 240,
 }));
-const DateTypography = styled(Typography) ({
+const DateTypography = styled(Typography)({
   flexGrow: 1,
 });
 const ToolBarSpacer = styled('div')(({ theme }) => theme.mixins.toolbar)
@@ -63,44 +62,40 @@ export default function Layout({ children }) {
           <Typography>
             App Uza
           </Typography>
-          <Avatar src='/avatar.jpg' sx={{ margin: 2 }}/>
+          <Avatar src='/avatar.jpg' sx={{ margin: 2 }} />
         </Toolbar>
       </AppBarStyled>
-
       {/* side drawer */}
       <DrawerComponent variant='permanent' anchor='left'>
         {/* <DrawerPaper> */}
-          <div>
-            <Typography variant='h5' align='center' sx={{ padding: 2 }}>
-              My Notes App
-            </Typography>
-          </div>
-          {/* list links */}
-
-          <List>
-            {menuItems.map(item => (
-              <ListItem
-                button key={item.text}
-                onClick={() => history.push(item.path)}
-                sx={{
-                  backgroundColor: location.pathname === item.path ? '#f4f4f4' : 'transparent',
-                  '&:hover': {
-                    backgroundColor: '#f4f4f4',
-                  },
-                }}
-              >
-                <ListItemIcon>{item.icon}</ListItemIcon>
-                <ListItemText primary={item.text} />
-              </ListItem>
-            ))}
-          </List>
-
+        <div>
+          <Typography variant='h5' align='center' sx={{ padding: 2 }}>
+            My Notes App
+          </Typography>
+        </div>
+        {/* list links */}
+        <List>
+          {menuItems.map(item => (
+            <ListItem
+              button key={item.text}
+              onClick={() => history.push(item.path)}
+              sx={{
+                backgroundColor: location.pathname === item.path ? '#f4f4f4' : 'transparent',
+                '&:hover': {
+                  backgroundColor: '#f4f4f4',
+                },
+              }}
+            >
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText primary={item.text} />
+            </ListItem>
+          ))}
+        </List>
         {/* </DrawerPaper> */}
       </DrawerComponent>
-
       {/* main content */}
       <PageContainer>
-        <ToolBarSpacer/>
+        <ToolBarSpacer />
         {children}
       </PageContainer>
     </RootContainer>
