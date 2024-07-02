@@ -10,5 +10,5 @@ Run **npm install json-server** to install JSON Server.
 Run **npx json-server --watch yourpath/yourfilename.json --port 8000**
 
 #### Final Product
-![Notes-Page](https://example.com/path/to/image.png)
-![Create-Note-page](https://example.com/path/to/image.png)
+![Create-Note-page](https://github.com/Vhkan/mui-practice-project/blob/main/public/create-note.png)
+![Notes-Page](https://github.com/Vhkan/mui-practice-project/blob/main/public/notes.png)
